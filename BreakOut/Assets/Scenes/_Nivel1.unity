@@ -1228,6 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5815afed2b2cef4aa0a4f241fcfb59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mouse: 1
   minX: -5
   maxX: 5
   z: -3.61
@@ -1497,7 +1498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 1173610338}
   pad: {fileID: 599835243}
-  spd: 8
+  spd: 5
   mul: 1.25
   minComp: 0.15
 --- !u!1001 &720511177

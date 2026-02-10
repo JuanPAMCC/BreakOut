@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Pad : MonoBehaviour
 {
-    public float minX = -4f;
-    public float maxX = 4f;
+    public bool Mouse = true;
+
+    public float minX = -3.37f;
+    public float maxX = 3.37f;
     public float z = -3.61f;
     public float spd = 12f;
 
@@ -18,11 +20,12 @@ public class Pad : MonoBehaviour
     {
         float x = transform.position.x;
 
-        if (Input.mousePresent)
+        if (Mouse)
         {
             Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
             Plane pl = new Plane(Vector3.up, new Vector3(0f, transform.position.y, 0f));
             float t;
+
             if (pl.Raycast(r, out t))
             {
                 Vector3 w = r.GetPoint(t);
@@ -31,7 +34,8 @@ public class Pad : MonoBehaviour
         }
         else
         {
-            x += Input.GetAxis("Horizontal") * spd * Time.deltaTime;
+            float ax = Input.GetAxis("Horizontal");
+            x += ax * spd * Time.deltaTime;
         }
 
         x = Mathf.Clamp(x, minX, maxX);

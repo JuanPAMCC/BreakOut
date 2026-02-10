@@ -21,7 +21,7 @@ public class Ball : MonoBehaviour
         if (!go && pad != null)
         {
             transform.position = pad.transform.position + new Vector3(0f, 0.6f, 0f);
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
             {
                 go = true;
                 rb.linearVelocity = new Vector3(1f, 0f, 1f).normalized * spd;
