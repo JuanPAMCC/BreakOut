@@ -21,6 +21,6 @@ public class BloqLargo : Bloq
         s.x *= 0.85f;
         transform.localScale = s;
 
-        if (hp <= 0) Die();
+        if (hp <= 0) Die(b);
     }
 }

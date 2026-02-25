@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WinChk : MonoBehaviour
 {
+    public GM gm;
     bool ok = false;
 
     void Update()
@@ -11,7 +12,7 @@ public class WinChk : MonoBehaviour
         if (transform.childCount == 0)
         {
             ok = true;
-            Debug.Log("FELICIDADES");
+            if (gm != null) gm.Win();
         }
     }
 }

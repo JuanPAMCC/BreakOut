@@ -4,9 +4,14 @@ public class Ball : MonoBehaviour
 {
     public GM gm;
     public Pad pad;
+
+    public OptionsSO options;
+
     public float spd = 8f;
     public float mul = 1.25f;
     public float minComp = 0.15f;
+
+    private float baseSpd;
 
     Rigidbody rb;
     bool go = false;
@@ -14,6 +19,8 @@ public class Ball : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        baseSpd = spd;
+        ApplyDifficulty();
     }
 
     void Update()
@@ -40,6 +47,7 @@ public class Ball : MonoBehaviour
     public void Rst()
     {
         go = false;
+        ApplyDifficulty();
         if (rb != null) rb.linearVelocity = Vector3.zero;
         Debug.Log("rst bola");
     }
@@ -88,4 +96,12 @@ public class Ball : MonoBehaviour
 
         rb.linearVelocity = v1.normalized * spd;
     }
+
+    private void ApplyDifficulty()
+    {
+        float mult = 1f;
+        if (options != null) mult = DifficultyScaler.BallSpdMul(options.difficulty);
+        spd = baseSpd * mult;
+    }
+
 }

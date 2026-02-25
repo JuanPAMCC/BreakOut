@@ -10,6 +10,6 @@ public class BloqMad : Bloq
     public override void Hit(Ball b)
     {
         hp -= 1;
-        if (hp <= 0) Die();
+        if (hp <= 0) Die(b);
     }
 }
